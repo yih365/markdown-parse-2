@@ -15,10 +15,12 @@ public class MarkdownParse {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
+            int spaceIndex = markdown.indexOf(" ", openParen);
             int closeParen = markdown.indexOf(")", openParen);
 
             //checks for infinite looping
-            if (nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1) {
+            if (nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1 || 
+                (spaceIndex != -1 && spaceIndex < closeParen)) {
                 break;
             }
 

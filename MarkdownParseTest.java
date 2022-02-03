@@ -29,7 +29,11 @@ public class MarkdownParseTest {
 
         filename = Path.of("test-file4.md");
         contents = Files.readString(filename);
-        assertEquals(MarkdownParse.getLinks(contents), List.of("a link on the first line"));
+        assertEquals(MarkdownParse.getLinks(contents), List.of());
+        
+        filename = Path.of("test-file9.md");
+        contents = Files.readString(filename);
+        assertEquals(MarkdownParse.getLinks(contents), List.of());
     }
 
     /*
